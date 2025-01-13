@@ -35,6 +35,13 @@ class LinkedList:
             currentPos = currentPos.next
         print ("Done") # End of list
 
+# PUSH METHOD
+
+    def push(self, data):
+        newNode = Node(data)
+        newNode.next = self.head
+        self.head = newNode
+
 def menu():
 
     myList = LinkedList()
@@ -46,21 +53,21 @@ def menu():
         if selection == '1':
             data = input("Enter data to push: ")
             time.sleep(1)
-            #LinkedList.push(data)
+            myList.push(data)
             print("Pushed " + data + " to the list.")
             continue
 
         if selection == '2':
-            LinkedList.pop()
+            myList.pop()
 
         if selection == '3':
-            LinkedList.reverse()
+            myList.reverse()
 
         if selection == '4':
-            LinkedList.sort()
+            myList.sort()
 
         if selection == '5':
-            LinkedList.display()
+            myList.display()
 
         else:
             print("Please select an option from the list.")
