@@ -36,11 +36,22 @@ class LinkedList:
         print ("Done") # End of list
 
 # PUSH METHOD
-
     def push(self, data):
         newNode = Node(data)
         newNode.next = self.head
         self.head = newNode
+
+# POP METHOD
+    def pop(self):
+
+            if not self.head: #Empty List validation
+                print("List is empty!")
+                return None
+
+            popData = self.head.data
+            self.head = self.head.next #Shifts data over one position
+            print("Popped: " + popData)
+            return popData
 
 def menu():
 
