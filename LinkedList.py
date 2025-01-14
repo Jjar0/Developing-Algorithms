@@ -11,20 +11,6 @@ class LinkedList:
         
         self.head = None  # Head initially null
 
-# ADD DATA TO LIST
-    def append(self, data):
-
-        newNode = Node(data) # Create new Node
-
-        if self.head is None: # If list empty
-            self.head = newNode # Set new node as head
-            return
-        
-        currentPos = self.head # If not empty start at head node
-        while currentPos.next:#traverse through nodes
-            currentPos = currentPos.next 
-        currentPos.next = newNode # Set next pointer of the last node to new node
-
 # DISPLAY DATA
     def display(self):
 
@@ -35,16 +21,16 @@ class LinkedList:
             currentPos = currentPos.next
         print ("Done") # End of list
 
-# PUSH METHOD
+# PUSH 
     def push(self, data):
         newNode = Node(data)
         newNode.next = self.head
         self.head = newNode
 
-# POP METHOD
+# POP
     def pop(self):
 
-            if not self.head: #Empty List validation
+            if self.head is None: #Empty List validation
                 print("List is empty!")
                 return None
 
@@ -52,6 +38,18 @@ class LinkedList:
             self.head = self.head.next #Shifts data over one position
             print("Popped: " + popData)
             return popData
+# REVERSE
+    def reverse(self):
+
+            prev = None
+            currentPos = self.head
+            while currentPos:
+                nextNode = currentPos.next
+                currentPos.next = prev
+                prevNode = currentPos
+                currentPos = nextNode
+            self.head = prevNode
+            print("Reversed List.")
 
 def menu():
 
@@ -70,9 +68,11 @@ def menu():
 
         if selection == '2':
             myList.pop()
+            continue
 
         if selection == '3':
             myList.reverse()
+            continue
 
         if selection == '4':
             myList.sort()
