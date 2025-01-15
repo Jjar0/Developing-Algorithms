@@ -17,7 +17,7 @@ class LinkedList:
         currentPos = self.head # Start at head of the list
 
         while currentPos is not None: # Traverse list
-            print(currentPos.data, end=" > ")
+            print(currentPos.data, end=" > ") # Output formatting using end
             currentPos = currentPos.next
         print ("Done") # End of list
 
