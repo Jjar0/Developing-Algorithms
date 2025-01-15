@@ -52,6 +52,28 @@ class LinkedList:
             self.head = prevNode # Update the head to the last node
             print("Reversed List.")
 
+# SORT
+    def sort(self):
+        
+        if self.head is None or self.head.next is None: # Validation for list length
+            print("List is too short.")
+            return
+
+        dataList = [] # Extract data into a Python list
+        currentPos = self.head
+        while currentPos is not None:
+            dataList.append(currentPos.data)
+            currentPos = currentPos.next
+
+        dataList.sort() # Sort the Python list
+
+        currentPos = self.head # Rebuild the linked list with sorted data
+        for data in dataList:
+            currentPos.data = data  # Update node data
+            currentPos = currentPos.next
+
+        print("List has been sorted.")
+
 
 def menu():
 
@@ -64,7 +86,15 @@ def menu():
         if selection == '1':
             data = input("Enter data to push: ")
             time.sleep(1)
-            myList.push(data)
+            
+            try:
+                intData = int(data)  # Validate input as an integer
+                myList.push(intData)
+
+            except ValueError:
+                print("You must enter an integer.")
+                continue 
+
             print("Pushed " + data + " to the list.")
             myList.display()
             continue
