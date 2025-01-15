@@ -62,7 +62,7 @@ class LinkedList:
         dataList = [] # Extract data into a Python list
         currentPos = self.head
         while currentPos is not None:
-            dataList.append(currentPos.data)
+            dataList.append(int(currentPos.data))
             currentPos = currentPos.next
 
         dataList.sort() # Sort the Python list
@@ -86,7 +86,7 @@ def menu():
         if selection == '1':
             data = input("Enter data to push: ")
             time.sleep(1)
-            
+
             try:
                 intData = int(data)  # Validate input as an integer
                 myList.push(intData)
