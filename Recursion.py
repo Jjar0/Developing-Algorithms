@@ -1,39 +1,50 @@
 import turtle
 
-def draw(branchLength, t):
-    if branchLength > 5:  # To stop recursion
-# Main branch
-        t.forward(branchLength)
+class KochSnowflake:
+    def __init__(self, depth, side_length):
 
-# Draw right subtree
-        t.right(20)  # Turn 20 degrees right
-        draw(branchLength - 15, t)  # Recursive call for right subtree
+        self.depth = depth
+        self.side_length = side_length
+        self.t = turtle.Turtle()
+        self.screen = turtle.Screen()
 
-# Return to Main
-        t.left(40)  # Turn the turtle 40 degrees left
-        draw(branchLength - 15, t)  # Recursive call for left subtree
+    def config(self):
 
-# Return to the original angle
-        t.right(20)
-        t.backward(branchLength)
+        self.screen.bgcolor("white")
+        self.t.speed(0)
+        self.t.penup()
+        self.t.goto(-self.side_length / 2, self.side_length / 3)  # Adjust starting position
+        self.t.pendown()
+        self.t.hideturtle()
 
-# Turtle config
-def main():
-    view = turtle.Screen()
-    view.bgcolor("white")
+    def drawSegment(self, length, depth):
 
-    t = turtle.Turtle()
-    t.shape("turtle")
-    t.speed(5)  # Set fast speed
+        if depth == 0:
+            self.t.forward(length)
+        else:
+            length /= 3.0
+            self.drawSegment(length, depth - 1)
+            self.t.left(60)
+            self.drawSegment(length, depth - 1)
+            self.t.right(120)
+            self.drawSegment(length, depth - 1)
+            self.t.left(60)
+            self.drawSegment(length, depth - 1)
 
-    t.left(90)  # Point up
-    t.penup()
-    t.goto(0, -250)  # Start at the bottom of the screen
-    t.pendown()
+    def drawSnowflake(self):
+  
+        for _ in range(3):  # Three sides of the snowflake
+            self.drawSegment(self.side_length, self.depth)
+            self.t.right(120)
 
-    draw(100, t) #Draw
+    def run(self):
 
-    view.mainloop()
+        self.config()
+        self.drawSnowflake()
+        self.screen.mainloop()
 
-main()
+
+snowflake = KochSnowflake(depth=4, side_length=400)
+snowflake.run()
+
 
