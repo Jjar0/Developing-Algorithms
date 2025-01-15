@@ -14,9 +14,9 @@ class LinkedList:
 # DISPLAY DATA
     def display(self):
 
-        currentPos = self.head # Start at the head of the list
+        currentPos = self.head # Start at head of the list
 
-        while currentPos: # Traverse list
+        while currentPos is not None: # Traverse list
             print(currentPos.data, end=" > ")
             currentPos = currentPos.next
         print ("Done") # End of list
@@ -41,15 +41,17 @@ class LinkedList:
 # REVERSE
     def reverse(self):
 
-            prev = None
-            currentPos = self.head
-            while currentPos:
-                nextNode = currentPos.next
-                currentPos.next = prev
-                prevNode = currentPos
-                currentPos = nextNode
-            self.head = prevNode
+            prevNode = None
+            currentPos = self.head # Start at the head of list
+
+            while currentPos is not None:
+                nextNode = currentPos.next # Store the next node
+                currentPos.next = prevNode # Reverse the link
+                prevNode = currentPos # Move previous pointer to current node
+                currentPos = nextNode # Move to next node
+            self.head = prevNode # Update the head to the last node
             print("Reversed List.")
+
 
 def menu():
 
@@ -64,18 +66,22 @@ def menu():
             time.sleep(1)
             myList.push(data)
             print("Pushed " + data + " to the list.")
+            myList.display()
             continue
 
         if selection == '2':
             myList.pop()
+            myList.display()
             continue
 
         if selection == '3':
             myList.reverse()
+            myList.display()
             continue
 
         if selection == '4':
             myList.sort()
+            myList.display()
 
         if selection == '5':
             myList.display()
