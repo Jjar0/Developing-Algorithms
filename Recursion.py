@@ -1,10 +1,10 @@
 import turtle
 
 class KochSnowflake:
-    def __init__(self, depth, side_length):
+    def __init__(self, depth, sideLength):
 
         self.depth = depth
-        self.side_length = side_length
+        self.sideLength = sideLength
         self.t = turtle.Turtle()
         self.screen = turtle.Screen()
 
@@ -13,7 +13,7 @@ class KochSnowflake:
         self.screen.bgcolor("white")
         self.t.speed(0)
         self.t.penup()
-        self.t.goto(-self.side_length / 2, self.side_length / 3)  # Adjust starting position
+        self.t.goto(-self.sideLength / 2, self.sideLength / 3)  # Adjust starting position
         self.t.pendown()
         self.t.hideturtle()
 
