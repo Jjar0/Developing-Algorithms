@@ -6,13 +6,13 @@ class TestKochSnowflake(unittest.TestCase):
 
     def setUp(self):
         self.depth = 4
-        self.side_length = 400
-        self.snowflake = KochSnowflake(depth=self.depth, side_length=self.side_length)
+        self.sideLength = 400
+        self.snowflake = KochSnowflake(depth=self.depth, sideLength=self.sideLength)
         self.snowflake.t = MagicMock()  # Mock the turtle object to avoid actual drawing
 
     def test_initialization(self):
         self.assertEqual(self.snowflake.depth, self.depth)
-        self.assertEqual(self.snowflake.side_length, self.side_length)
+        self.assertEqual(self.snowflake.sideLength, self.sideLength)
         self.assertIsNotNone(self.snowflake.t)
         self.assertIsNotNone(self.snowflake.screen)
 
@@ -20,7 +20,7 @@ class TestKochSnowflake(unittest.TestCase):
         self.snowflake.config()
         self.snowflake.t.speed.assert_called_with(0)
         self.snowflake.t.penup.assert_called_once()
-        self.snowflake.t.goto.assert_called_once_with(-self.side_length / 2, self.side_length / 3)
+        self.snowflake.t.goto.assert_called_once_with(-self.sideLength / 2, self.sideLength / 3)
         self.snowflake.t.pendown.assert_called_once()
         self.snowflake.t.hideturtle.assert_called_once()
 
