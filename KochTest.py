@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from koch_snowflake import KochSnowflake  # Assuming the class is in a file named `koch_snowflake.py`
+from Recursion import KochSnowflake
 
 class TestKochSnowflake(unittest.TestCase):
     def setUp(self):
