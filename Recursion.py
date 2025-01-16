@@ -38,4 +38,5 @@ class KochSnowflake:
         self.drawSnowflake()
         self.screen.mainloop()
 
-
+snowflake = KochSnowflake(depth=4, sideLength=400)
+snowflake.run()
