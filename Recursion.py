@@ -2,14 +2,12 @@ import turtle
 
 class KochSnowflake:
     def __init__(self, depth, sideLength):
-
         self.depth = depth
         self.sideLength = sideLength
         self.t = turtle.Turtle()
         self.screen = turtle.Screen()
 
     def config(self):
-
         self.screen.bgcolor("white")
         self.t.speed(0)
         self.t.penup()
@@ -18,7 +16,6 @@ class KochSnowflake:
         self.t.hideturtle()
 
     def drawSegment(self, length, depth):
-
         if depth == 0:
             self.t.forward(length)
         else:
@@ -32,19 +29,13 @@ class KochSnowflake:
             self.drawSegment(length, depth - 1)
 
     def drawSnowflake(self):
-  
         for _ in range(3):  # Three sides of the snowflake
-            self.drawSegment(self.side_length, self.depth)
+            self.drawSegment(self.sideLength, self.depth)
             self.t.right(120)
 
     def run(self):
-
         self.config()
         self.drawSnowflake()
         self.screen.mainloop()
-
-
-snowflake = KochSnowflake(depth=4, sideLength=400)
-snowflake.run()
 
 
