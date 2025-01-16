@@ -94,7 +94,7 @@ def menu():
                 print("You must enter an integer.")
                 continue
 
-            print(f"Pushed {data} to the list.")
+            print("Pushed "+data+" to the list.")
             myList.display()
             continue
 
