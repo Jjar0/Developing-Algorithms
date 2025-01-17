@@ -119,5 +119,6 @@ def menu():
             print("Please select a valid option.")
 
 
-print("Linked List System")
-menu()
+if __name__ == "__main__":
+    print("Linked List System")
+    menu()
