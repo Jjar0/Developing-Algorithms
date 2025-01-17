@@ -79,7 +79,7 @@ def menu():
     while True:
         time.sleep(1)
         selection = input(
-            "Select List Function:\n[1] Push\n[2] Pop\n[3] Reverse\n[4] Sort\n[5] Display\n[6] Exit\n>"
+            "Select List Function:\n[1] Push\n[2] Pop\n[3] Reverse\n[4] Sort\n[5] Display\n>"
         )
 
         if selection == "1":
