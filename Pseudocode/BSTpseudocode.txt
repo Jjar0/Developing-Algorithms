@@ -1,0 +1,41 @@
+CLASS Node
+    DATA, LEFT, RIGHT
+
+CLASS BinarySearchTree
+    ROOT
+
+    FUNCTION INSERT(data)
+        ROOT ← INSERT_REC(ROOT, data)
+    
+    FUNCTION INSERT_REC(node, data)
+        IF node = NULL THEN
+            RETURN Node(data)
+        ELSE IF data < node.DATA THEN
+            node.LEFT ← INSERT_REC(node.LEFT, data)
+        ELSE
+            node.RIGHT ← INSERT_REC(node.RIGHT, data)
+        END IF
+        RETURN node
+
+    FUNCTION SEARCH(data)
+        RETURN SEARCH_REC(ROOT, data)
+    
+    FUNCTION SEARCH_REC(node, data)
+        IF node = NULL OR node.DATA = data THEN
+            RETURN node
+        END IF
+        IF data < node.DATA THEN
+            RETURN SEARCH_REC(node.LEFT, data)
+        ELSE
+            RETURN SEARCH_REC(node.RIGHT, data)
+        END IF
+
+    FUNCTION INORDER()
+        INORDER_REC(ROOT)
+    
+    FUNCTION INORDER_REC(node)
+        IF node ≠ NULL THEN
+            INORDER_REC(node.LEFT)
+            PRINT(node.DATA)
+            INORDER_REC(node.RIGHT)
+        END IF
