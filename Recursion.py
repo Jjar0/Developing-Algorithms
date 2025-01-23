@@ -27,22 +27,18 @@ class KochSnowflake:
             # RECUSRIVE CASE: divide segment into thirds
             length /= 3.0
             # Draw the first segment
-            self.drawSegment(length, depth - 1)
-            
+            self.drawSegment(length, depth - 1) 
             self.t.left(60)
             # Draw the second segment
             self.drawSegment(length, depth - 1)
-
             self.t.right(120)
             # Draw third segment
             self.drawSegment(length, depth - 1)
-
             self.t.left(60)
             # Draw fourth segment
             self.drawSegment(length, depth - 1)
 
-    def drawSnowflake(self):
-        # Draw Koch snowflake
+    def drawSnowflake(self): # Draw Koch snowflake
         for _ in range(3):  # Loop to draw three sides of triangle
             self.drawSegment(self.sideLength, self.depth)  # Draw one side
             self.t.right(120)  # Turn right 120 degrees to start next side
@@ -53,7 +49,6 @@ class KochSnowflake:
         self.drawSnowflake()  # Draw Koch snowflake
         self.screen.mainloop()  # Keep screen open
 
-# Start
 # Create KochSnowflake class instance with specified depth and side length
 snowflake = KochSnowflake(depth=4, sideLength=400)
 snowflake.run()
