@@ -94,16 +94,13 @@ def menu():
         selection = input(
             "Select List Function:\n[1] Push\n[2] Pop\n[3] Reverse\n[4] Sort\n[5] Display\n>"
         )
-
         # PUSH operation
         if selection == "1":
             data = input("Enter data to push: ")
             time.sleep(1) 
-
             try:
                 intData = int(data)  # Validate input as an integer
                 myList.push(intData)  # Push data to linked list
-
             except ValueError:
                 print("You must enter an integer.")  # Handle invalid input
                 continue
@@ -111,28 +108,23 @@ def menu():
             print("Pushed " + data + " to the list.")
             myList.display()  # Display the updated list
             continue
-
         # POP operation
         elif selection == "2":
             myList.pop()  # Remove the first element from list
             myList.display()
             continue
-
         # REVERSE operation
         elif selection == "3":
             myList.reverse()  # Reverse order of the list
             myList.display() 
             continue
-
         # SORT operation
         elif selection == "4":
             myList.sort()  # Sort the list
             myList.display()
-
         # DISPLAY operation
         elif selection == "5":
             myList.display()  # Display the current state of the list
-
         # INVALID option
         else:
             print("Please select a valid option.")
