@@ -1,7 +1,7 @@
 import unittest
 from io import StringIO
 import sys
-from LinkedList import Node, LinkedList  # Assuming your code is in a file named linked_list_module.py
+from LinkedList import Node, LinkedList
 
 class TestLinkedList(unittest.TestCase):
 
