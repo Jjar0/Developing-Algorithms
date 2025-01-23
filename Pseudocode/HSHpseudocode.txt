@@ -1,0 +1,47 @@
+CLASS HashTable
+    SIZE
+    TABLE
+
+    FUNCTION INIT(size)
+        SIZE ← size
+        TABLE ← ARRAY OF size EMPTY BUCKETS
+
+    FUNCTION HASH(key)
+        RETURN key MOD SIZE
+
+    FUNCTION INSERT(key, value)
+        INDEX ← HASH(key)
+        IF TABLE[INDEX] = NULL THEN
+            TABLE[INDEX] ← []
+        END IF
+        APPEND (key, value) TO TABLE[INDEX]
+
+    FUNCTION SEARCH(key)
+        INDEX ← HASH(key)
+        BUCKET ← TABLE[INDEX]
+        IF BUCKET ≠ NULL THEN
+            FOR EACH (k, v) IN BUCKET DO
+                IF k = key THEN
+                    RETURN v
+                END IF
+            END FOR
+        END IF
+        RETURN NULL
+
+    FUNCTION DELETE(key)
+        INDEX ← HASH(key)
+        BUCKET ← TABLE[INDEX]
+        IF BUCKET ≠ NULL THEN
+            FOR EACH (k, v) IN BUCKET DO
+                IF k = key THEN
+                    REMOVE (k, v) FROM BUCKET
+                    RETURN TRUE
+                END IF
+            END FOR
+        END IF
+        RETURN FALSE
+
+    FUNCTION DISPLAY()
+        FOR i ← 0 TO SIZE - 1 DO
+            PRINT "Index", i, ":", TABLE[i]
+        END FOR

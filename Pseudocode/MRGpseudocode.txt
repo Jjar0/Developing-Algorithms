@@ -1,0 +1,37 @@
+FUNCTION MERGE_SORT(array)
+    IF LENGTH(array) ≤ 1 THEN
+        RETURN array
+    END IF
+
+    MID ← FLOOR(LENGTH(array) / 2)
+    LEFT ← MERGE_SORT(array[0 TO MID - 1])
+    RIGHT ← MERGE_SORT(array[MID TO LENGTH(array) - 1])
+
+    RETURN MERGE(LEFT, RIGHT)
+
+FUNCTION MERGE(left, right)
+    RESULT ← []
+    i ← 0
+    j ← 0
+
+    WHILE i < LENGTH(left) AND j < LENGTH(right) DO
+        IF left[i] ≤ right[j] THEN
+            APPEND left[i] TO RESULT
+            i ← i + 1
+        ELSE
+            APPEND right[j] TO RESULT
+            j ← j + 1
+        END IF
+    END WHILE
+
+    WHILE i < LENGTH(left) DO
+        APPEND left[i] TO RESULT
+        i ← i + 1
+    END WHILE
+
+    WHILE j < LENGTH(right) DO
+        APPEND right[j] TO RESULT
+        j ← j + 1
+    END WHILE
+
+    RETURN RESULT
